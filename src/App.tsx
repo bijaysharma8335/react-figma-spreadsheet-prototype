@@ -1,11 +1,14 @@
 import  SpreadsheetGrid from "./components/SpreadsheetGrid";
+import Toolbar from "./components/Toolbar";
 
 function App() {
     return (
-        <>
-            <h1 className="text-3xl text-green-900 font-bold">React Figma Spreadsheet Prototype</h1>
-            <SpreadsheetGrid/>
-        </>
+        <main className="flex flex-col h-screen">
+          <Toolbar/>
+
+          <div className="flex-1 overflow-auto p-4">  <SpreadsheetGrid/></div>
+          
+        </main>
     );
 }
 

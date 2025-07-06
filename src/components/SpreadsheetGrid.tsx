@@ -81,6 +81,7 @@ const columns: Column<RowData>[] = [
     { Header: "Priority", accessor: "priority" },
     { Header: "Due Date", accessor: "dueDate" },
     { Header: "Est. Value", accessor: "estValue" },
+     { Header: "+", accessor: "+" },
 ];
 const SpreadsheetGrid = () => {
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable<RowData>({
@@ -89,14 +90,14 @@ const SpreadsheetGrid = () => {
     });
     return (
         <div className="overflow-x-auto">
-            <table {...getTableProps()} className=" min-w-full border text-sm">
+            <table {...getTableProps()} className=" min-w-full border  text-sm">
                 <thead className="bg-gray-100">
                     {headerGroups.map((headerGroup) => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map((column) => (
                                 <th
                                     {...column.getHeaderProps()}
-                                    className="border px-4 py-2 text-left font-medium text-gray-700"
+                                    className="border px-4 py-2 text-left font-semibold text-gray-600 bg-gray-100"
                                 >
                                     {column.render("Header")}
                                 </th>

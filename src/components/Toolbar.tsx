@@ -1,7 +1,9 @@
-import { FiChevronsRight, FiEyeOff } from "react-icons/fi";
+import { FiChevronsRight, FiDownload, FiEyeOff, FiUpload } from "react-icons/fi";
 import { RiArrowUpDownFill } from "react-icons/ri";
 import { MdFilterList } from "react-icons/md";
 import { TbArrowAutofitDown } from "react-icons/tb";
+import { FaShareSquare } from "react-icons/fa";
+import icon from "../assets/icon.svg";
 
 export default function Toolbar() {
     return (
@@ -12,6 +14,7 @@ export default function Toolbar() {
                 <span className="pr-3 py-1 text-sm  flex items-center gap-1">
                     Tool Bar <FiChevronsRight className="w-4 h-4  " />
                 </span>{" "}
+                <span className="text-gray-200 text-xl">|</span>
                 <span
                     onClick={() => console.log(" Hide Fields Clicked")}
                     className="px-3 py-1  text-sm flex  items-center gap-1"
@@ -42,26 +45,28 @@ export default function Toolbar() {
             <div className="flex flex-wrap  gap-2">
                 <button
                     onClick={() => console.log("Import Clicked")}
-                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white"
+                    className="px-3 py-1 border rounded text-sm hover:bg-green-800 hover:text-white flex items-center gap-1"
                 >
-                    Import
+                    <FiDownload className="w-4 h-4 " /> Import
                 </button>
                 <button
                     onClick={() => console.log("Export Clicked")}
-                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white"
+                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white flex items-center gap-1"
                 >
+                    <FiUpload className="w-4 h-4" />
                     Export
                 </button>
                 <button
                     onClick={() => console.log("Share Clicked")}
-                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white"
+                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white flex items-center gap-1"
                 >
-                    Share
+                    <FaShareSquare className="w-4 h-4" /> Share
                 </button>
                 <button
                     onClick={() => console.log("New Action Clicked")}
-                    className="px-3 py-1 border rounded-lg bg-green-800 text-white "
+                    className="px-3 py-1 border rounded-lg bg-green-800 text-white flex items-center gap-1"
                 >
+                    <img src={icon} alt="New Action Icon" className="w-5 h-5" />
                     New Action
                 </button>
             </div>

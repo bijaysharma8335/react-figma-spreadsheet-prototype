@@ -1,13 +1,15 @@
-import  SpreadsheetGrid from "./components/SpreadsheetGrid";
+import SpreadsheetGrid from "./components/SpreadsheetGrid";
+
 import Toolbar from "./components/Toolbar";
+import Topbar from "./components/Topbar";
 
 function App() {
     return (
         <main className="flex flex-col h-screen">
-          <Toolbar/>
+            <Topbar />
+            <Toolbar />
 
-          <div className="flex-1 overflow-auto p-4">  <SpreadsheetGrid/></div>
-          
+            <div className="flex-1 overflow-auto p-4">  <SpreadsheetGrid /></div>
         </main>
     );
 }

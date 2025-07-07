@@ -1,3 +1,4 @@
+import OrderTabs from "./components/OrderTabs";
 import SpreadsheetGrid from "./components/SpreadsheetGrid";
 
 import Toolbar from "./components/Toolbar";
@@ -9,7 +10,11 @@ function App() {
             <Topbar />
             <Toolbar />
 
-            <div className="flex-1 overflow-auto p-4">  <SpreadsheetGrid /></div>
+            <div className="flex-1 overflow-auto ">
+                {" "}
+                <SpreadsheetGrid />
+            </div>
+            <OrderTabs/>
         </main>
     );
 }

@@ -3,8 +3,7 @@ import notificationBell from "../assets/notification-bell.svg";
 import user from "../assets/john.svg";
 import mirror from "../assets/switch.svg";
 
-
-export default function Topbar() {
+const Topbar: React.FC = () => {
     return (
         <div className="flex justify-between gap-2 px-3 py-3 text-sm text-gray  border-b ml-2">
             {/* Left BreadCrumb */}
@@ -46,4 +45,5 @@ export default function Topbar() {
             </div>
         </div>
     );
-}
+};
+export default Topbar;

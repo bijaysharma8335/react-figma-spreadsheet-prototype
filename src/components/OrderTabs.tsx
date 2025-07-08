@@ -11,7 +11,7 @@ const OrderTabs: React.FC = () => {
         setActiveTab(newSheetName);
     };
     return (
-        <div className="flex item-center fixed  bottom-0 z-10  w-full h-[44px] px-2  font-medium border-t border-gray-300 bg-white shadow-sm pl-[30px]  ">
+        <div className="flex item-center fixed  bottom-0 z-20  w-full h-[44px] px-2  font-medium border-t border-gray-300 bg-white shadow-sm pl-[30px]  ">
             {tabs.map((tab) => (
                 <div
                     key={tab}

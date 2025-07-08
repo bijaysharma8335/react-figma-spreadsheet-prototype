@@ -1,10 +1,10 @@
-import OrderTabs from "./components/OrderTabs";
+import type React from "react";
 import SpreadsheetGrid from "./components/SpreadsheetGrid";
 
 import Toolbar from "./components/Toolbar";
 import Topbar from "./components/Topbar";
 
-function App() {
+const App: React.FC = () => {
     return (
         <main className="flex flex-col h-screen">
             <Topbar />
@@ -14,9 +14,8 @@ function App() {
                 {" "}
                 <SpreadsheetGrid />
             </div>
-          
         </main>
     );
-}
+};
 
 export default App;

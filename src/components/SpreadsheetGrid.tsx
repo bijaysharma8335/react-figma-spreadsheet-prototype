@@ -1,3 +1,4 @@
+// Imports: Icons & React Table Types
 import { FaGlobe, FaUser } from "react-icons/fa";
 import { FiChevronDown } from "react-icons/fi";
 import { IoChevronDownCircle, IoLinkOutline } from "react-icons/io5";
@@ -6,6 +7,7 @@ import { IoMdAdd } from "react-icons/io";
 import type { Column, HeaderGroup, Row, Cell, CellProps, ColumnInstance } from "react-table";
 import { useTable } from "react-table";
 
+// Imports: Local assets (SVGs & child components)
 import bag from "../assets/bag.svg";
 import submit from "../assets/submit.svg";
 
@@ -13,8 +15,10 @@ import emoji from "../assets/emoji.svg";
 import icon from "../assets/icon.svg";
 import icon1 from "../assets/icon1.svg";
 
+//import components
 import OrderTabs from "./OrderTabs";
 
+// Data type for each row in the table
 type RowData = {
     id: number;
     jobRequest: string;
@@ -29,7 +33,7 @@ type RowData = {
     last: string;
 };
 
-//static data
+// Dummy data generator: 5 real rows + 95 empty rows
 const generateData = (): RowData[] => {
     const baseData = [
         {
@@ -93,6 +97,8 @@ const generateData = (): RowData[] => {
             last: "",
         },
     ];
+
+    // Fill remaining rows with empty placeholders
     const data: RowData[] = [];
     for (let i = 0; i < 100; i++) {
         if (i < 5) {
@@ -116,6 +122,8 @@ const generateData = (): RowData[] => {
     return data;
 };
 
+// Table Columns Definition
+// Each column: custom header and custom cell renderer
 const columns: Column<RowData>[] = [
     {
         Header: () => (
@@ -297,7 +305,7 @@ const SpreadsheetGrid: React.FC = () => {
         data,
     });
     return (
-        <div className=" flex-1 overflow-x-auto w-[100%] scrollbar-hidden">
+        <div className=" flex-1  w-[100%] ">
             <div className=" flex w-full ">
                 <div className="px-2 py-1 text-sm text-gray-700 truncate border border-[#eeeeee] w-[30px]"></div>
 
@@ -358,24 +366,25 @@ const SpreadsheetGrid: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex sticky top-0 z-10 bg-white">
-                <div>
+            <div className="flex sticky top-0 z-20 bg-white">
+                <div className="flex flex-col">
                     <div className="px-2 py-1 text-lg  text-[#BCBCBC] bg-gray-100 border border-[#eeeeee] text-center w-[30px]">
                         #
                     </div>
-
-                    {data.map((_, index) => (
-                        <div
-                            key={index}
-                            className="h-10 flex items-center justify-center border-b border-gray-200 text-gray-500"
-                        >
-                            {index + 1}
-                        </div>
-                    ))}
+                    <div className=" ">
+                        {data.map((_, index) => (
+                            <div
+                                key={index}
+                                className="w-[30px] h-10 flex items-center justify-center border-b border-gray-200 text-gray-500"
+                            >
+                                {index + 1}
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <table {...getTableProps()} className="min-w-full border text-sm">
-                    <thead className="bg-gray-100">
+                    <thead className="bg-gray-100 sticky top-0 z-20">
                         {headerGroups.map((headerGroup: HeaderGroup<RowData>) => {
                             const { key: headerKey, ...headerProps } =
                                 headerGroup.getHeaderGroupProps();
@@ -385,7 +394,7 @@ const SpreadsheetGrid: React.FC = () => {
                                         const { key: colKey, ...colProps } =
                                             column.getHeaderProps();
 
-                                        // 🎨 Determine header BG color based on accessor
+                                        // 🎨 Determine header BG color based on accessor given
                                         let extraClass = "";
                                         switch (column.id) {
                                             case "priority":
@@ -418,7 +427,7 @@ const SpreadsheetGrid: React.FC = () => {
                         })}
                     </thead>
 
-                    <tbody {...getTableBodyProps()}>
+                    <tbody {...getTableBodyProps()} className=" overflow-y-auto">
                         {rows.map((row: Row<RowData>) => {
                             prepareRow(row);
                             const { key: rowKey, ...rowProps } = row.getRowProps();
@@ -451,8 +460,8 @@ const SpreadsheetGrid: React.FC = () => {
                     </tbody>
                 </table>
             </div>
-            {/* </div> */}
 
+            {/* rder tab components  */}
             <OrderTabs />
         </div>
     );

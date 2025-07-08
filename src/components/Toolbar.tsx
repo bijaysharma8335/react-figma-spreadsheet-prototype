@@ -5,12 +5,13 @@ import { TbArrowAutofitDown } from "react-icons/tb";
 import { FaShareSquare } from "react-icons/fa";
 import icon from "../assets/icon.svg";
 
-export default function Toolbar() {
+const Toolbar: React.FC = () => {
     return (
         <div className="flex gap-2 px-3 py-1.5 justify-between border-b border-[#eeeeee] text-sm ">
-            {/* Left Side  */}
+            {/* 🔹 Left Side: Label and actions */}
 
             <div className="flex items-center gap-5 ">
+                {/* Toolbar label and arrow */}
                 <button className=" flex items-center justify-center px-3 py-1 text-sm  gap-1 border-r-2 border-gray-300 cursor-default">
                     <span>Tool Bar</span> <FiChevronsRight className="w-4 h-4  " />
                 </button>{" "}
@@ -45,6 +46,7 @@ export default function Toolbar() {
             {/* Right Side */}
 
             <div className="flex items-center  gap-2">
+                {/* Import and export  button */}
                 <button
                     onClick={() => console.log("Import Clicked")}
                     className="flex items-center justify-center gap-1 px-2 py-2 border border-gray-200 rounded-md text-gray-600 hover:bg-[#4B6A4F] hover:text-white duration-200 ease-in cursor-default"
@@ -58,6 +60,8 @@ export default function Toolbar() {
                     <FiUpload className="w-4 h-4" />
                     <span>Export</span>
                 </button>
+
+                {/* Share button */}
                 <button
                     onClick={() => console.log("Share Clicked")}
                     className="flex items-center justify-center gap-1 px-2 py-2 border border-gray-200 rounded-md text-gray-600 hover:bg-[#4B6A4F] hover:text-white duration-200 ease-in cursor-default"
@@ -75,4 +79,5 @@ export default function Toolbar() {
             </div>
         </div>
     );
-}
+};
+export default Toolbar;

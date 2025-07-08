@@ -6,9 +6,9 @@ import mirror from "../assets/switch.svg";
 
 export default function Topbar() {
     return (
-        <div className="flex justify-between gap-2 px-4 py-3 text-sm text-gray  border-b">
+        <div className="flex justify-between gap-2 px-3 py-3 text-sm text-gray  border-b ml-2">
             {/* Left BreadCrumb */}
-            <div className="flex items-center gap-2 cursor-pointer">
+            <div className="flex items-center gap-2 px-2 cursor-pointer">
                 <img src={mirror} alt="Switch" className="w-5 h-5 text-gray-400" />
                 <span className="font-medium text-gray-400 hover:underline">Workspace</span>
                 <FiChevronRight className="w-4 h-4 text-gray-400" />

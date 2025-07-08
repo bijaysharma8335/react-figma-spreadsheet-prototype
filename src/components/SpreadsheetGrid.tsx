@@ -341,7 +341,7 @@ const SpreadsheetGrid: React.FC = () => {
 
                 <div
                     className="px-2 py-1 text-sm text-gray-700 truncate border border-[#eeeeee] flex items-center justify-center bg-[#fac2af] gap-1 cursor-pointer "
-                    style={{ width: "180px" }}
+                    style={{ width: "177px" }}
                 >
                     <img className="w-5" alt="Extract" src={icon} />
                     <span className="font-[500] tracking-wide">Extract</span>
@@ -384,11 +384,29 @@ const SpreadsheetGrid: React.FC = () => {
                                     {headerGroup.headers.map((column: ColumnInstance<RowData>) => {
                                         const { key: colKey, ...colProps } =
                                             column.getHeaderProps();
+
+                                        // 🎨 Determine header BG color based on accessor
+                                        let extraClass = "";
+                                        switch (column.id) {
+                                            case "priority":
+                                            case "dueDate":
+                                                extraClass = "bg-[#EAECFC]";
+                                                break;
+                                            case "estValue":
+                                                extraClass = "bg-[#FFE9E0]";
+                                                break;
+                                            case "assigned":
+                                                extraClass = "bg-[#D2E0D4]";
+                                                break;
+                                            default:
+                                                extraClass = "bg-[#F3F3F3]";
+                                        }
+
                                         return (
                                             <th
                                                 key={colKey}
                                                 {...colProps}
-                                                className="relative border p-2 text-left font-semibold text-gray-600 bg-[#F3F3F3] sticky top-0 z-11"
+                                                className={`relative border p-2 text-left font-semibold text-gray-600   ${extraClass}`}
                                             >
                                                 {column.render("Header")}
                                                 <div className="absolute cursor-col-resize top-0 right-0 w-2 h-full"></div>
@@ -399,6 +417,7 @@ const SpreadsheetGrid: React.FC = () => {
                             );
                         })}
                     </thead>
+
                     <tbody {...getTableBodyProps()}>
                         {rows.map((row: Row<RowData>) => {
                             prepareRow(row);

@@ -7,64 +7,67 @@ import icon from "../assets/icon.svg";
 
 export default function Toolbar() {
     return (
-        <div className="flex flex-wrap items-center justify-between border-b px-4 py-2 bg-white">
+        <div className="flex gap-2 px-3 py-1.5 justify-between border-b border-[#eeeeee] text-sm">
             {/* Left Side  */}
 
-            <div className="flex items-center gap-4">
-                <span className="pr-3 py-1 text-sm  flex items-center gap-1">
-                    Tool Bar <FiChevronsRight className="w-4 h-4  " />
-                </span>{" "}
-                <span className="text-gray-200 text-xl">|</span>
-                <span
+            <div className="flex items-center gap-5">
+                <button className=" flex items-center justify-center px-3 py-1 text-sm  gap-1 border-r-2 border-gray-300">
+                    <span>Tool Bar</span> <FiChevronsRight className="w-4 h-4  " />
+                </button>{" "}
+                <button
                     onClick={() => console.log(" Hide Fields Clicked")}
-                    className="px-3 py-1  text-sm flex  items-center gap-1"
+                    className=" flex  items-center justify-center gap-1"
                 >
-                    <FiEyeOff className="w-4 h-4 " /> Hide fields
-                </span>
-                <span
+                    <FiEyeOff className="w-4 h-4 " />
+                    <span>Hide fields</span>
+                </button>
+                <button
                     onClick={() => console.log("Sort Clicked")}
-                    className="px-3 py-1 text-sm  flex  items-center gap-1"
+                    className="flex  items-center justify-center  gap-1"
                 >
-                    <RiArrowUpDownFill className="w-4 h-4 " /> Sort
-                </span>{" "}
-                <span
+                    <RiArrowUpDownFill className="w-4 h-4 " />
+                    <span>Sort</span>
+                </button>{" "}
+                <button
                     onClick={() => console.log("Filter Clicked")}
-                    className="px-3 py-1 text-sm  flex  items-center gap-1"
+                    className="  flex  items-center justify-center gap-1"
                 >
-                    <MdFilterList className="w-4 h-4 " /> Filter
-                </span>
-                <span
+                    <MdFilterList className="w-4 h-4 " />
+                    <span>Filter</span>
+                </button>
+                <button
                     onClick={() => console.log("Cell view clicked")}
-                    className="px-3 py-1 text-sm  flex  items-center gap-1"
+                    className="flex  items-center justify-center gap-1"
                 >
-                    <TbArrowAutofitDown className="w-4 h-4 " /> Cell view
-                </span>
+                    <TbArrowAutofitDown className="w-4 h-4 " /> <span>Cell view</span>
+                </button>
             </div>
             {/* Right Side */}
 
-            <div className="flex flex-wrap  gap-2">
+            <div className="flex items-center  gap-2">
                 <button
                     onClick={() => console.log("Import Clicked")}
-                    className="px-3 py-1 border rounded text-sm hover:bg-green-800 hover:text-white flex items-center gap-1"
+                    className="flex items-center justify-center gap-1 px-2 py-2 border border-gray-200 rounded-md text-gray-600 hover:bg-[#4B6A4F] hover:text-white duration-200 ease-in "
                 >
-                    <FiDownload className="w-4 h-4 " /> Import
+                    <FiDownload className="w-4 h-4  " /> <span>Import</span>
                 </button>
                 <button
                     onClick={() => console.log("Export Clicked")}
-                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white flex items-center gap-1"
+                    className="flex items-center justify-center gap-1 px-2 py-2 border border-gray-200 rounded-md text-gray-600 hover:bg-[#4B6A4F] hover:text-white duration-200 ease-in "
                 >
                     <FiUpload className="w-4 h-4" />
-                    Export
+                    <span>Export</span>
                 </button>
                 <button
                     onClick={() => console.log("Share Clicked")}
-                    className="px-3 py-1 border rounded hover:bg-green-800 hover:text-white flex items-center gap-1"
+                    className="flex items-center justify-center gap-1 px-2 py-2 border border-gray-200 rounded-md text-gray-600 hover:bg-[#4B6A4F] hover:text-white duration-200 ease-in "
                 >
-                    <FaShareSquare className="w-4 h-4" /> Share
+                    <FaShareSquare className="w-4 h-4" />
+                    <span>Share</span>
                 </button>
                 <button
                     onClick={() => console.log("New Action Clicked")}
-                    className="px-3 py-1 border rounded-lg bg-green-800 text-white flex items-center gap-1"
+                    className="flex items-center gap-1 justify-center px-6 py-2 border rounded-md bg-[#4B6A4F] text-white "
                 >
                     <img src={icon} alt="New Action Icon" className="w-5 h-5" />
                     New Action

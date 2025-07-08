@@ -5,20 +5,20 @@ const OrderTabs: React.FC = () => {
     const [activeTab, setActiveTab] = useState("All Orders");
 
     const handleAddSheet = () => {
-        const newSheetNumber =  tabs.length + 1;
+        const newSheetNumber = tabs.length + 1;
         const newSheetName = `Sheet ${newSheetNumber}`;
         setTabs([...tabs, newSheetName]);
         setActiveTab(newSheetName);
     };
     return (
-        <div className="flex text-sm font-medium border-t border bg-white ">
+        <div className="flex item-center fixed  bottom-0 z-10  w-full h-[44px] px-2  font-medium border-t border-gray-300 bg-white shadow-sm pl-[30px]  ">
             {tabs.map((tab) => (
                 <div
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`p-3 text-gray-500 cursor-default  ${
+                    className={`px-4 py-3 text-sm transition-all font-medium   text-[#757575] cursor-default  ${
                         activeTab === tab
-                            ? "border-t-2 border-green-800 text-green-800 bg-gray-300"
+                            ? "bg-[#E8F0E9] text-[#3E5741] font-medium  border-[#3E5741] border-t-2"
                             : "hover:bg-gray-200"
                     }`}
                 >
@@ -26,9 +26,12 @@ const OrderTabs: React.FC = () => {
                 </div>
             ))}
             {/* + Button */}
-            <div onClick={handleAddSheet} className="p-2 text-gray-500 cursor-pointer hover:bg-gray-200 text-2xl hover:text-green-800">
+            <button
+                onClick={handleAddSheet}
+                className="w-[32px] h-[32px] text-2xl text-[#757575] hover:bg-gray-200 flex items-center justify-center p-6"
+            >
                 +
-            </div>
+            </button>
         </div>
     );
 };

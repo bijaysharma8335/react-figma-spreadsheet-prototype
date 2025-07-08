@@ -14,7 +14,7 @@ function App() {
                 {" "}
                 <SpreadsheetGrid />
             </div>
-            <OrderTabs/>
+          
         </main>
     );
 }
